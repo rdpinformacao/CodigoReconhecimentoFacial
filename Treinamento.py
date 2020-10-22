@@ -8,7 +8,7 @@ fisherface = cv2.face.FisherFaceRecognizer_create()
 
 
 def getImagemComId():
-    caminhos = [os.path.join('fotos', f) for f in os.listdir('fotos')]
+    caminhos = [os.path.join('Fotos_Capturadas', f) for f in os.listdir('fotos')]
     #print(caminhos)
     faces = []
     ids = []
@@ -27,13 +27,8 @@ ids, faces = getImagemComId()
 #print(faces)
 
 print("Treinando...")
-#eigenface.train(faces, ids)
-#eigenface.write('classificadorEigen.yml')
 
 fisherface.train(faces, ids)
 fisherface.write('classificadorFisher.yml')
-
-#lbph.train(faces, ids)
-#lbph.write('classificadorLBPH.yml')
 
 print("Treinamento realizado")
